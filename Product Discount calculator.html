@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Discount Calculator</title>
+</head>
+<body>
+  <h1>Product Discount Calculator</h1>
+  <form>
+    <label for="product-description">Product Description:</label>
+    <input type="text" id="product-description" name="product-description"><br><br>
+    <label for="list-price">List Price:</label>
+    <input type="number" id="list-price" name="list-price"><br><br>
+    <label for="discount-percentage">Discount Percentage:</label>
+    <input type="number" id="discount-percentage" name="discount-percentage"> %<br><br>
+    <label for="discounted-amount">Discounted Amount:</label>
+    <input type="text" id="discounted-amount" name="discounted-amount" readonly><br><br>
+    <label for="discounted-price">Discounted Price:</label>
+    <input type="text" id="discounted-price" name="discounted-price" readonly><br><br>
+    <button type="button" onclick="calculateDiscount()">Calculate</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <script>
+    function calculateDiscount() {
+      var listPrice = parseFloat(document.getElementById("list-price").value);
+      var discountPercentage = parseFloat(document.getElementById("discount-percentage").value) / 100;
+      var discountedAmount = listPrice * discountPercentage;
+      var discountedPrice = listPrice - discountedAmount;
+
+      document.getElementById("discounted-amount").value = discountedAmount.toFixed(2);
+      document.getElementById("discounted-price").value = discountedPrice.toFixed(2);
+    }
+  </script>
+</body>
+</html>
